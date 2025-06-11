@@ -11,7 +11,7 @@ const App = () => {
 
   const fetchDashboard = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/dashboard');
+      const res = await axios.get('https://mpesa-pesa-prompt.onrender.com/dashboard');
       setBalance(res.data.balance);
       setTransactions(res.data.transactions);
     } catch (error) {
@@ -20,7 +20,7 @@ const App = () => {
   };
 
   const handleTransaction = async ({ amount, type }) => {
-    const url = `http://localhost:3000/${type}`;
+    const url = `https://mpesa-pesa-prompt.onrender.com/${type}`;
     try {
       await axios.post(url, { amount, phoneNumber });
       fetchDashboard(); // Refresh balance and history
